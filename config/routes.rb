@@ -1,6 +1,5 @@
 SampleApp::Application.routes.draw do
-  get "users/new"
-
+  resources :users
 
   get "static_pages/home"  #removing this breaks the root page - don't know why.
   root to: "static_pages#home"

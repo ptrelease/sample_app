@@ -1,0 +1,67 @@
+<% provide(:title, @user.name) %>
+<h1><%= @user.name %> </h1>
+
+<%= @user.name %>,  <%= @user.email %>
+
+
+
+
+require 'spec_helper'
+
+#describe "UserPages" do
+
+#  subject { page }
+
+  #describe "profile page" do
+  #    let (:user) { FactoryGirl.create(:user) }
+  #    before { visit user_path(user) }
+  #
+  #    it { should have_selector('h1', text: user.name) }
+
+  #   it { should have_selector('title', text: user.name) }
+#  end
+
+  #describe "signup page" do
+  #  before { visit signup_path }
+  #
+  #  it { should have_selector('h1', text: 'Sign up')}
+  #end
+
+#end
+
+
+
+
+
+require 'spec_helper'
+
+# Specs in this file have access to a helper object that includes
+# the UsersHelper. For example:
+#
+# describe UsersHelper do
+#   describe "string concat" do
+#     it "concats two strings with spaces" do
+#       helper.concat_strings("this","that").should == "this that"
+#     end
+#   end
+# end
+describe "user pages" do
+  subject { page }
+  describe "signup page" do
+    before { visit signup_path }
+
+    it { should have_selector('h1', text: 'Sign up')}
+    it { should have_selector('title', text: 'Sign up')}
+  end
+end
+
+describe "profile page" do
+  # code to make a user variable
+  before { visit user_path(user) }
+
+  it { should have_selector('h1', text: user.name)}
+  it { should have_selector('title', text: user.name)}
+end
+
+
+
